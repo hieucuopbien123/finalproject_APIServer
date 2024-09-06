@@ -1,0 +1,119 @@
+###
+GET http://localhost:3001/uploads/users/image-1716107669796.jpeg
+
+### Get user info
+GET http://localhost:3001/v1/user?address=0xf958ab285fF01511067DF5e2822767268F76a19a
+
+### Get user nfts with collection pagination
+GET http://localhost:3001/v1/user/usernfts?limit=50&address=0x3663ad7562d4114Cad62DEe634F5b9bf875A531E&collections[]=0x6314759cf9e438c363cc432c72e6bf9a91854b03
+
+### Get user collection
+GET http://localhost:3001/v1/user/usercollections?address=0x3663ad7562d4114Cad62DEe634F5b9bf875A531E
+
+### Get auction stats
+GET http://localhost:3001/v1/auction/stats?auctionType=0
+
+### Get auction
+GET http://localhost:3001/v1/auction/ongoing?first=50&skip=0&orderBy=timestamp&orderDirection=desc&userAddress[]=0x3663ad7562d4114Cad62DEe634F5b9bf875A531E&searchTerms=
+
+### Get auction collection
+GET http://localhost:3001/v1/auction/auctioncollection?auctionType=0&first=20&skip=0
+
+### Get auction creator
+GET http://localhost:3001/v1/auction/auctioncreator?auctionType=0&first=20&skip=0
+
+### Add vickrey bid count
+POST http://localhost:3001/v1/auction/bidauction
+Content-Type: application/json
+
+{
+  "userAddress": "0x46C67ab65F5c862FD6d267B0aF07865ee8c6b4E5",
+  "auctionAddress": "0x9d4f7c03f88cbc7b974788177efb5210830c3439",
+  "auctionType": 1,
+  "sig": "0x5cfc82fc6b379e3343fe34fac695d19e56ca991306bd286f764970e0c132947e1e8ce51bc3a8587042e89dc113cde68fc5520b3c722cda7227856d790bfd171f1b"
+}
+
+### Get auction bidded
+GET http://localhost:3001/v1/auction/bidded?first=50&skip=0&orderBy=timestamp&orderDirection=desc&userAddress=0x3663ad7562d4114Cad62DEe634F5b9bf875A531E
+
+### Get user owned auction collection
+GET http://localhost:3001/v1/user/userownedauctioncollections?userAddress=0x3663ad7562d4114Cad62DEe634F5b9bf875A531E
+
+### Get user bidded auction collection
+GET http://localhost:3001/v1/user/userbiddedauctioncollections?userAddress=0x46C67ab65F5c862FD6d267B0aF07865ee8c6b4E5
+
+### GET one auction
+GET http://localhost:3001/v1/auction/oneauction?auctionAddress=0x5d836c7f8e75b8eb5c21b2a5ca73f0ff9b72f3ae
+
+### GET collection nft
+GET http://localhost:3001/v1/nft/getnftbycollection?collectionAddress=0x84ab7ff55717a95639dc38c3e7e40c5c2d18b4fd&limit=2
+
+### GET nft detail
+GET http://localhost:3001/v1/nft/getnftdetail?nftaddress=0x84ab7ff55717a95639dc38c3e7e40c5c2d18b4fd&nftId=10
+
+### GET nft detail auction history
+GET http://localhost:3001/v1/nft/getnftauctionhistory?nftaddress=0x84ab7ff55717a95639dc38c3e7e40c5c2d18b4fd&nftId=1
+
+### GET nft detail transfer
+GET http://localhost:3001/v1/nft/getnftdetailtransfer?nftaddress=0x84ab7ff55717a95639dc38c3e7e40c5c2d18b4fd&nftId=1
+
+### GET user activities
+GET http://localhost:3001/v1/user/useractivities?userAddress=0x3663ad7562d4114Cad62DEe634F5b9bf875A531E
+
+### GET one auction trades
+GET http://localhost:3001/v1/auction/oneauctiontrade?auctionAddress=0xedd47bdef2232e94472cc675c199e3f90bfe9a85
+
+### GET one nft trades
+GET http://localhost:3001/v1/nft/getnftdetailtrade?collectionAddress=0xfb7e87d1f40716a712b1a8fc09b3f3f38f38068a&nftId=1
+
+### GET NFT Owner
+GET http://localhost:3001/v1/nft/getnftdetailowners?collectionAddress=0xfb7e87d1f40716a712b1a8fc09b3f3f38f38068a&nftId=1&limit=1
+
+### GET search
+GET http://localhost:3001/v1/nft/search?search=Rya
+
+### POST batchProof
+POST http://localhost:3001/v1/auction/batchProof
+Content-Type: application/json
+
+{
+  "proof": "0x9d4f7c03f88cbc7b974788177efb5210830c3439_0x46C67ab65F5c862FD6d267B0aF07865ee8c6b4E5_10000000000000000_f6f76544-7746-4500-9ba8-6554d273ad6c"
+}
+
+### DELETE batchProof
+DELETE http://localhost:3001/v1/auction/batchProof
+Content-Type: application/json
+
+{
+  "id": "665c188235e4cb9e28284a84"
+}
+
+### GET batchProof
+GET http://localhost:3001/v1/auction/batchProof?auctionAddress=0x9d4f7c03f88cbc7b974788177efb5210830c3439
+
+### Resync metadata
+POST http://localhost:3001/v1/nft/resyncmetadata
+Content-Type: application/json
+
+{
+  "address": "0xfb7e87d1f40716a712b1a8fc09b3f3f38f38068a"
+}
+
+### Heart
+POST http://localhost:3001/v1/nft/heart
+Content-Type: application/json
+
+{
+  "collectionAddress": "0xfb7e87d1f40716a712b1a8fc09b3f3f38f38068a",
+  "nftId": "2",
+  "userAddress": "0x3663ad7562d4114"
+}
+
+### Heart num
+GET http://localhost:3001/v1/nft/heartNum?collectionAddress=0xfb7e87d1f40716a712b1a8fc09b3f3f38f38068a&nftId=1
+
+### Test
+POST http://localhost:3001/v1/auction/bidauction
+Content-Type: application/json
+
+{"userAddress":"0x46C67ab65F5c862FD6d267B0aF07865ee8c6b4E5","auctionAddress":"0x46669ee335f4aab0d782a06fd4ab5f754e94070d","auctionType":3,"sig":"0x5cfc82fc6b379e3343fe34fac695d19e56ca991306bd286f764970e0c132947e1e8ce51bc3a8587042e89dc113cde68fc5520b3c722cda7227856d790bfd171f1b"}
